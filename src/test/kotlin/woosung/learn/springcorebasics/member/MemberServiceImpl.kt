@@ -1,7 +1,9 @@
 package woosung.learn.springcorebasics.member
 
 
-class MemberServiceImpl(private val memberRepository: MemberRepository) : MemberService {
+class MemberServiceImpl : MemberService {
+    private val memberRepository: MemberRepository = MemoryMemberRepository()
+
     override fun join(member: Member) {
         memberRepository.save(member)
     }
