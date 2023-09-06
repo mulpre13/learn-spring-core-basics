@@ -1,4 +1,4 @@
-package woosung.learn.springcorebasics.member
+package woosung.learn.springcorebasics
 
 
 class MemberServiceImpl : MemberService {

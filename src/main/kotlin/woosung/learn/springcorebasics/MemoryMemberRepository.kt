@@ -1,4 +1,4 @@
-package woosung.learn.springcorebasics.member
+package woosung.learn.springcorebasics
 
 private val store: MutableMap<Long, Member> = mutableMapOf()
 
@@ -8,5 +8,5 @@ class MemoryMemberRepository : MemberRepository {
         store.put(member.id, member)
     }
 
-    override fun findById(id: Long): Member? = store.get(id)
+    override fun findById(id: Long): Member? = store[id]
 }
