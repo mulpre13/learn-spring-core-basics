@@ -1,4 +1,4 @@
-package woosung.learn.springcorebasics
+package woosung.learn.springcorebasics.member
 
 interface MemberService {
     fun join(member: Member)

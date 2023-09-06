@@ -1,4 +1,4 @@
-package woosung.learn.springcorebasics
+package woosung.learn.springcorebasics.member
 
 private val store: MutableMap<Long, Member> = mutableMapOf()
 

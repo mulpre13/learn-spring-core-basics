@@ -1,4 +1,4 @@
-package woosung.learn.springcorebasics
+package woosung.learn.springcorebasics.member
 
 interface MemberRepository {
     fun save(member: Member)

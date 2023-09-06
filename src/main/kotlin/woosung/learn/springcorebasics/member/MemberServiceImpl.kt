@@ -1,5 +1,4 @@
-package woosung.learn.springcorebasics
-
+package woosung.learn.springcorebasics.member
 
 class MemberServiceImpl : MemberService {
     private val memberRepository: MemberRepository = MemoryMemberRepository()

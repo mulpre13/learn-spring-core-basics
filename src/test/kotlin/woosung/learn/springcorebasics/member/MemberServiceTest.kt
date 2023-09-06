@@ -2,9 +2,9 @@ package woosung.learn.springcorebasics.member
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-import woosung.learn.springcorebasics.Grade
-import woosung.learn.springcorebasics.Member
-import woosung.learn.springcorebasics.MemberServiceImpl
+import woosung.learn.springcorebasics.member.Grade
+import woosung.learn.springcorebasics.member.Member
+import woosung.learn.springcorebasics.member.MemberServiceImpl
 
 class MemberServiceTest : FunSpec() {
     init {
