@@ -2,13 +2,12 @@ package woosung.learn.springcorebasics
 
 import woosung.learn.springcorebasics.member.Grade
 import woosung.learn.springcorebasics.member.Member
-import woosung.learn.springcorebasics.member.MemberServiceImpl
 import woosung.learn.springcorebasics.order.Order
-import woosung.learn.springcorebasics.order.OrderServiceImpl
 
 fun main() {
-    val memberService = MemberServiceImpl()
-    val orderService = OrderServiceImpl()
+    val appConfig = AppConfig()
+    val memberService = appConfig.memberService()
+    val orderService = appConfig.orderService()
 
     val memberId = 1L
     val member = Member(memberId, "memberA", Grade.VIP)

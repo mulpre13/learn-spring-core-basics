@@ -2,10 +2,10 @@ package woosung.learn.springcorebasics
 
 import woosung.learn.springcorebasics.member.Grade
 import woosung.learn.springcorebasics.member.Member
-import woosung.learn.springcorebasics.member.MemberServiceImpl
 
 fun main() {
-    val memberService = MemberServiceImpl()
+    val appConfig = AppConfig()
+    val memberService = appConfig.memberService()
     val member = Member(1L, "A", Grade.VIP)
     memberService.join(member)
 

@@ -2,14 +2,15 @@ package woosung.learn.springcorebasics.order
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
+import woosung.learn.springcorebasics.AppConfig
 import woosung.learn.springcorebasics.member.Grade
 import woosung.learn.springcorebasics.member.Member
-import woosung.learn.springcorebasics.member.MemberServiceImpl
 
 class OrderServiceTest : FunSpec() {
     init {
-        val memberService = MemberServiceImpl()
-        val orderService = OrderServiceImpl()
+        val appConfig = AppConfig()
+        val memberService = appConfig.memberService()
+        val orderService = appConfig.orderService()
 
         test("createOrder") {
             val memberId = 1L
