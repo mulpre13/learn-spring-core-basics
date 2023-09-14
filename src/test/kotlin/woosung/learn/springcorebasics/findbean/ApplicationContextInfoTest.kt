@@ -12,9 +12,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import woosung.learn.springcorebasics.AppConfig
-import woosung.learn.springcorebasics.member.MemberRepository
+import woosung.learn.springcorebasics.discount.DiscountPolicy
+import woosung.learn.springcorebasics.discount.FixedDiscountPolicy
+import woosung.learn.springcorebasics.discount.RateDiscountPolicy
 import woosung.learn.springcorebasics.member.MemberService
-import woosung.learn.springcorebasics.member.MemoryMemberRepository
 
 class ApplicationContextInfoTest : FunSpec() {
     init {
@@ -53,17 +54,17 @@ class ApplicationContextInfoTest : FunSpec() {
 
         test("multiple beans of same type") {
             shouldThrow<NoUniqueBeanDefinitionException> {
-                testAppConfig.getBean(MemberRepository::class.java)
+                testAppConfig.getBean(DiscountPolicy::class.java)
             }
         }
 
         test("find bean by name when multiple beans exist") {
-            val memberRepository = testAppConfig.getBean("memberRepository1", MemberRepository::class.java)
-            memberRepository.shouldBeInstanceOf<MemberRepository>()
+            val discountPolicy = testAppConfig.getBean("rateDiscountPolicy", DiscountPolicy::class.java)
+            discountPolicy.shouldBeInstanceOf<DiscountPolicy>()
         }
 
         test("find all beans of type") {
-            val beansOfType = testAppConfig.getBeansOfType<MemberRepository>()
+            val beansOfType = testAppConfig.getBeansOfType<DiscountPolicy>()
             println(beansOfType)
             beansOfType.size shouldBe 2
         }
@@ -73,8 +74,8 @@ class ApplicationContextInfoTest : FunSpec() {
 @Configuration
 private class MultipleBeansConfig {
     @Bean
-    fun memberRepository1() = MemoryMemberRepository()
+    fun rateDiscountPolicy(): DiscountPolicy = RateDiscountPolicy()
 
     @Bean
-    fun memberRepository2() = MemoryMemberRepository()
+    fun fixedDiscountPolicy(): DiscountPolicy = FixedDiscountPolicy()
 }
