@@ -33,5 +33,12 @@ class SingletonTest : FunSpec() {
 
             memberService1 shouldBeSameInstanceAs memberService2
         }
+
+        test("Spring bean") {
+            val appConfig = AnnotationConfigApplicationContext(AppConfig::class.java)
+            val bean = appConfig.getBean(AppConfig::class.java)
+
+            println(bean.javaClass)
+        }
     }
 }
