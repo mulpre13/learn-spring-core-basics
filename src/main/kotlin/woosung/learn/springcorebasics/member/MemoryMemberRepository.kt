@@ -1,7 +1,10 @@
 package woosung.learn.springcorebasics.member
 
+import org.springframework.stereotype.Component
+
 private val store: MutableMap<Long, Member> = mutableMapOf()
 
+@Component
 class MemoryMemberRepository : MemberRepository {
 
     override fun save(member: Member) {
